@@ -2,9 +2,46 @@
 
 ![GrimWeaver](app/assets/brand/weaver.png)
 
-**Grimarillion v97d (GAL) 离线构筑工具 / Offline build planner for Grimarillion v97d (GAL).**
+**Offline build planner for Grimarillion v97d (GAL).**
 
-[下载正式版 / Download](https://github.com/drowsc089/GrimWeaver/releases/latest) · [v1.71](https://github.com/drowsc089/GrimWeaver/releases/tag/v1.71) · [双语更新日志 / Changelog](docs/CHANGELOG.html) · [版权声明 / Notices](docs/NOTICE.html)
+[Download](https://github.com/drowsc089/GrimWeaver/releases/latest) · [v1.71](https://github.com/drowsc089/GrimWeaver/releases/tag/v1.71) · [Changelog](docs/CHANGELOG.html) · [Notices](docs/NOTICE.html)
+
+## English
+
+### Download and Run
+
+Download `GrimWeaver_v1.71_GAL_Offline.zip` from [Releases](https://github.com/drowsc089/GrimWeaver/releases/latest), extract the complete folder and run `GrimWeaver.exe`. Requires Windows x64 and a modern browser. The launcher is self-contained; no .NET installation or Internet connection is required. The local address is `http://127.0.0.1:15688/`. Exit from the system tray to stop the service.
+
+SHA-256 sidecars accompany release archives. The application is not code-signed and Windows may display a first-run warning. Download from this repository's Releases and verify the checksum; do not disable system security protections.
+
+### Features
+
+- Equipment, affixes, components, augments, sets and item skill modifiers, with approximate roll ranges.
+- Masteries, devotions, editable celestial power ranks, buffs, pets and current-build debuffs.
+- Skill modifier lookup, resistance-reduction calculator and enemy resistance statistics with difficulty/content/encounter filters.
+- Build notes, author, dates, game/mod versions and online or local video references.
+- Local saves, file import/export, self-contained DB1 codes and full share links, Chinese/English UI and remembered language.
+- Read-only `.gdc` import, without changing character saves or game databases.
+
+### v1.71 Rank Behavior
+
+Build-file, code and link imports set allocated celestial powers to maximum rank. Native `.gdc` imports retain actual character ranks. Local saves, session restoration, undo and redo preserve explicit ranks; missing legacy ranks default to maximum. All 63 powers use experience-table growth caps, consistently across tooltips, buffs, summons and build debuffs.
+
+The DB1 codec and `schemaVersion=1` remain stable, with unknown extension fields retained. File-format compatibility is separate from compatibility with unknown future mod datasets; retain original exports. Local video files are not embedded or transferred.
+
+### Build from Source
+
+Install the **.NET 8 SDK**, then run `./tools/build-launcher.ps1` in PowerShell from the repository root. Run the resulting `GrimWeaver.exe`. Bundled UI, data and assets are sufficient; rebuilding the launcher does not require extracting game databases.
+
+With **Node.js 22+**, run `node tools/verify-compatibility.cjs` and `node tools/verify-v171.cjs`. Set `GRIMWEAVER_TEST_SAVE` to opt into a read-only native-save test. Generated reports are ignored under `verification/`. See [tools/README.md](tools/README.md) for optional data-maintenance inputs.
+
+### Scope and Rights
+
+This is an unofficial community tool, not a complete game-engine simulation. DPS, attack rates, random rolls, some modifiers and pet statistics require further in-game calibration. Enemy random gear, temporary effects and mutators are not fully simulated.
+
+Independently authored GrimWeaver code and the original application mark are [MIT-licensed](LICENSE.txt). Game/mod data, art, localization and third-party code retain their respective ownership and are **not relicensed under MIT**. Rem's project-specific permission is recorded in [Rem-PERMISSION.txt](third_party/Rem-PERMISSION.txt). Read [NOTICE.html](docs/NOTICE.html) before redistribution.
+
+Author: **drchan089** · Contact: **drowsc@gmail.com**
 
 ## 简体中文
 
@@ -59,40 +96,3 @@ node tools/verify-v171.cjs
 独立编写的 GrimWeaver 代码及原创应用标记采用 [MIT](LICENSE.txt)。游戏、模组、美术、汉化与第三方代码仍归原权利人所有，不因本仓库公开而获得 MIT 授权。Rem Skill Planner 的项目用途授权与归属见 [Rem-PERMISSION.txt](third_party/Rem-PERMISSION.txt) 和 [NOTICE.html](docs/NOTICE.html)。请勿将整个素材集合视为可任意再授权资源。
 
 作者：**大包** · 邮箱：**drowsc@gmail.com** · QQ 群：**972328019**
-
-## English
-
-### Download and Run
-
-Download `GrimWeaver_v1.71_GAL_Offline.zip` from [Releases](https://github.com/drowsc089/GrimWeaver/releases/latest), extract the complete folder and run `GrimWeaver.exe`. Requires Windows x64 and a modern browser. The launcher is self-contained; no .NET installation or Internet connection is required. The local address is `http://127.0.0.1:15688/`. Exit from the system tray to stop the service.
-
-SHA-256 sidecars accompany release archives. The application is not code-signed and Windows may display a first-run warning. Download from this repository's Releases and verify the checksum; do not disable system security protections.
-
-### Features
-
-- Equipment, affixes, components, augments, sets and item skill modifiers, with approximate roll ranges.
-- Masteries, devotions, editable celestial power ranks, buffs, pets and current-build debuffs.
-- Skill modifier lookup, resistance-reduction calculator and enemy resistance statistics with difficulty/content/encounter filters.
-- Build notes, author, dates, game/mod versions and online or local video references.
-- Local saves, file import/export, self-contained DB1 codes and full share links, Chinese/English UI and remembered language.
-- Read-only `.gdc` import, without changing character saves or game databases.
-
-### v1.71 Rank Behavior
-
-Build-file, code and link imports set allocated celestial powers to maximum rank. Native `.gdc` imports retain actual character ranks. Local saves, session restoration, undo and redo preserve explicit ranks; missing legacy ranks default to maximum. All 63 powers use experience-table growth caps, consistently across tooltips, buffs, summons and build debuffs.
-
-The DB1 codec and `schemaVersion=1` remain stable, with unknown extension fields retained. File-format compatibility is separate from compatibility with unknown future mod datasets; retain original exports. Local video files are not embedded or transferred.
-
-### Build from Source
-
-Install the **.NET 8 SDK**, then run `./tools/build-launcher.ps1` in PowerShell from the repository root. Run the resulting `GrimWeaver.exe`. Bundled UI, data and assets are sufficient; rebuilding the launcher does not require extracting game databases.
-
-With **Node.js 22+**, run `node tools/verify-compatibility.cjs` and `node tools/verify-v171.cjs`. Set `GRIMWEAVER_TEST_SAVE` to opt into a read-only native-save test. Generated reports are ignored under `verification/`. See [tools/README.md](tools/README.md) for optional data-maintenance inputs.
-
-### Scope and Rights
-
-This is an unofficial community tool, not a complete game-engine simulation. DPS, attack rates, random rolls, some modifiers and pet statistics require further in-game calibration. Enemy random gear, temporary effects and mutators are not fully simulated.
-
-Independently authored GrimWeaver code and the original application mark are [MIT-licensed](LICENSE.txt). Game/mod data, art, localization and third-party code retain their respective ownership and are **not relicensed under MIT**. Rem's project-specific permission is recorded in [Rem-PERMISSION.txt](third_party/Rem-PERMISSION.txt). Read [NOTICE.html](docs/NOTICE.html) before redistribution.
-
-Author: **drchan089** · Contact: **drowsc@gmail.com**
