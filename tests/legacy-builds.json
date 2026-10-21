@@ -1,0 +1,436 @@
+[
+  {
+    "version": "0.1",
+    "build": {
+      "schemaVersion": 1,
+      "environment": "GAL-v97d",
+      "dataHashes": [
+        "9e3532250cdb611a4cc989997c8f97fcec2d6c422063a845e6c43cd538c30603",
+        "c9eb9b8b76f5a2db6de14523205253102509b07dfac47b1da090c27d0b5a8893",
+        "163acc749ee9d647a0a7122d1f93b3c7ee9859142c9acabf1d7528591f5bc539",
+        "c6b8b5f2256a34ea4cefe89216cec10edd7cb1fbde46f76daf28cbd1aa088117",
+        "49a651266e3e68baa6fd3e7de7bfdf28e10ffdf2686bd584ad103045a2386a22"
+      ],
+      "name": "Compatibility example 0.1",
+      "level": 100,
+      "gender": "male",
+      "attributes": [
+        0,
+        0,
+        0
+      ],
+      "masteries": [
+        "1",
+        null
+      ],
+      "skills": {
+        "records/skills/playerclass01/_classtraining_class01.dbr": 1
+      },
+      "equipment": {},
+      "stars": [],
+      "bindings": {},
+      "buffs": {},
+      "difficulty": "ultimate",
+      "weaponSet": 1,
+      "questSkillPoints": 13,
+      "questAttributePoints": 8,
+      "settings": {
+        "rollMode": "average",
+        "ranges": true,
+        "ignoreSkillLimits": false,
+        "ignoreDevotionRequirements": false,
+        "highlightMI": true,
+        "highestLevel": false
+      }
+    },
+    "shareCode": "DB1.H4sIAAAAAAAACkVSXYscOQz8K0HPvqw_2l_9Fi5wd7CBI4F7OZZFtuUZE3f3xPZMsiz730PP7CZvokqUVCo9Q49HWvA_ar1sK8yCAa2X0rZ1oXXADH99uP_j4m0CBgkH_o39SB3m_8GT0kpKzWMKRgicYvTOe2-jy97mSFEmEycpuVHoJk0mTiomrVxU3HAFDKKn4IML1mSNMgWTSExaKsm11EpwqbkP3KaMcbJBJOSeR2kTDxqd87uEMApjtJMn8slMFjlaIWUS2augoiXyTnsxyegxYsgiWS13JOsQtfL7Fia4oLOU2qCaCKdImZyXwkSKglNKNgaRQ6LJZGsSZuliSAKROyeEBQaTR6OFNIYUGRcQTU6KbCIbcsrSkeB5L4wzIWk3YRJc8UmjVM6glPDAYMWFYIY_t-WEo4RSy3h6Rz9wOVV6x98LYFDpQhVmwTmDA62JGsywYCVggGO0Es7jGg5nnPEHBgv2Qa3cAhPA1nOtDwz611Jrh_kZGsWtpX53Q-5OFZ-oxYq9c3H3eC1Gw7KW9fD4Cr9PocEsXhjQt3M53d7k-YVBH9j2QQ8MQllTWQ_9RoRzzq9lKjmXeK7jCWY411EWHPv23wlP2_qFxvUDv52pjy_7Sv9uZR0dZqFe0Q9vNt8Yx6DTGK_ToG21ftrSfkm8UMPDrt5wPew3GO1MDMph3Rpd5e_LUnaRjLX_Yj7SZRtlWz_v_hrtBn-3HMvhWMvhOD7986a3Q9TH_S2ca9_Ly08Aw9GnWQMAAA"
+  },
+  {
+    "version": "1.0",
+    "build": {
+      "schemaVersion": 1,
+      "environment": "GAL-v97d",
+      "dataHashes": [
+        "9e3532250cdb611a4cc989997c8f97fcec2d6c422063a845e6c43cd538c30603",
+        "c9eb9b8b76f5a2db6de14523205253102509b07dfac47b1da090c27d0b5a8893",
+        "163acc749ee9d647a0a7122d1f93b3c7ee9859142c9acabf1d7528591f5bc539",
+        "c6b8b5f2256a34ea4cefe89216cec10edd7cb1fbde46f76daf28cbd1aa088117",
+        "49a651266e3e68baa6fd3e7de7bfdf28e10ffdf2686bd584ad103045a2386a22"
+      ],
+      "name": "Compatibility example 1.0",
+      "level": 100,
+      "gender": "male",
+      "attributes": [
+        0,
+        0,
+        0
+      ],
+      "masteries": [
+        "1",
+        null
+      ],
+      "skills": {
+        "records/skills/playerclass01/_classtraining_class01.dbr": 1
+      },
+      "equipment": {},
+      "stars": [],
+      "bindings": {},
+      "buffs": {},
+      "difficulty": "ultimate",
+      "weaponSet": 1,
+      "questSkillPoints": 13,
+      "questAttributePoints": 8,
+      "settings": {
+        "rollMode": "average",
+        "ranges": true,
+        "ignoreSkillLimits": false,
+        "ignoreDevotionRequirements": false,
+        "highlightMI": true,
+        "highestLevel": true,
+        "developerMode": false
+      }
+    },
+    "shareCode": "DB1.H4sIAAAAAAAACkVS22ocORD9lVDP2liX1q3fwgZ2FxxYEtiXxZiSVJoRUXdPJM0kxvjfQ8_YyVvpnNKpU5dn6PFIC_5HrZdthVkwoPVS2rYutA6Y4a8P939cvE3AIOHAv7EfqcP8P3hSWkmpeUzBCIFTjN5572102dscKcpk4iQlNwrdpMnEScWklYuKG66AQfQUfHDBmqxRpmASiUlLJbmWWgkuNfeB25QxTjaIhNzzKG3iQaNzfpcQRmGMdvJEPpnJIkcrpEwiexVUtETeaS8mGT1GDFkkq-WOZB2iVn53YYILOkupDaqJcIqUyXkpTKQoOKVkYxA5JJpMtiZhli6GJBC5c0JYYDB5NFpIY0iRcQHR5KTIJrIhpywdCZ73wDgTknYTJsEVnzRK5QxKCQ8MVlwIZvhzW044Sii1jKd39AOXU6V34j0HBpUuVGEWnDM40JqowQwLVgIGOEYr4Tyuy-GMM_7AYME-qJXbwgSw9VzrA4P-tdTaYX6GRnFrqd_dkLtTxSdqsWLvXNw9XoPRsKxlPTy-wu9TaDCLFwb07VxOtzN5fmHQB7a90AODUNZU1kO_EeGc82uYSs4lnut4ghnOdZQFx-7-O-FpW7_QuF7gtzP18WW39O9W1tFhFuoV_fDW5hvjGHQa47UatK3WT1vaJ4kXanjY1Ruuh30Go52JQTmsW6Or_H1Zyi6SsfZfzEe6bKNs6-e9v0Z7g79TjuVwrOVwHJ_-edPbIerj_racG5b2x3aidvNy_fzy8hOVdLQTbgMAAA"
+  },
+  {
+    "version": "1.1",
+    "build": {
+      "schemaVersion": 1,
+      "environment": "GAL-v97d",
+      "dataHashes": [
+        "9e3532250cdb611a4cc989997c8f97fcec2d6c422063a845e6c43cd538c30603",
+        "c9eb9b8b76f5a2db6de14523205253102509b07dfac47b1da090c27d0b5a8893",
+        "163acc749ee9d647a0a7122d1f93b3c7ee9859142c9acabf1d7528591f5bc539",
+        "c6b8b5f2256a34ea4cefe89216cec10edd7cb1fbde46f76daf28cbd1aa088117",
+        "49a651266e3e68baa6fd3e7de7bfdf28e10ffdf2686bd584ad103045a2386a22"
+      ],
+      "name": "Compatibility example 1.1",
+      "level": 100,
+      "gender": "male",
+      "attributes": [
+        0,
+        0,
+        0
+      ],
+      "masteries": [
+        "1",
+        null
+      ],
+      "skills": {
+        "records/skills/playerclass01/_classtraining_class01.dbr": 1
+      },
+      "equipment": {},
+      "stars": [],
+      "bindings": {},
+      "buffs": {},
+      "difficulty": "ultimate",
+      "weaponSet": 1,
+      "questSkillPoints": 13,
+      "questAttributePoints": 10,
+      "settings": {
+        "rollMode": "average",
+        "ranges": true,
+        "ignoreSkillLimits": false,
+        "ignoreDevotionRequirements": false,
+        "highlightMI": true,
+        "highestLevel": true,
+        "developerMode": false
+      }
+    },
+    "shareCode": "DB1.H4sIAAAAAAAACkVS22ocORD9lVDP2liX1q3fwgZ2F2xYEtiXxYSSVJoRUXePJc0kxvjfQ884yVvpnNKpU5cX6PFIC_5HrZdthVkwoPVS2rYutA6Y4a8P939cvE3AIOHAv7EfqcP8P3hSWkmpeUzBCIFTjN5572102dscKcpk4iQlNwrdpMnEScWklYuKG66AQfQUfHDBmqxRpmASiUlLJbmWWgkuNfeB25QxTjaIhNzzKG3iQaNzfpcQRmGMdvJEPpnJIkcrpEwiexVUtETeaS8mGT1GDFkkq-WOZB2iVn53YYILOkupDaqJcIqUyXkpTKQoOKVkYxA5JJpMtiZhli6GJBC5c0JYYDB5NFpIY0iRcQHR5KTIJrIhpywdCZ73wDgTknYTJsEVnzRK5QxKCY8MVlwIZvhzW044Sii1jOd39B2XU6V34r0ABpUuVGEWnDM40JqowQwLVgIGOEYr4Tyuy-GMM_7IYME-qJXbwgSw9VzrI4P-tdTaYX6BRnFrqd_dkLtTxWdqsWLvXNx9uQajYVnLevjyBr9PocEsXhnQ07mcbmfy8sqgD2x7oUcGoayprId-I8I557cwlZxLPNfxDDOc6ygLjt39N8LTtn6mcb3ApzP18Xm39O9W1tFhFuoN_fCzzV8MZ9BpjLdy0LZaH7a0jxIv1PCwyzdcD_sQRjsTg3JYt0ZX_fuylF0lY-2_mI902UbZ1k97g432Dn-nHMvhWMvhOB7--am3Q9TH_W07Nyztj-1E7ebl-vn19Qd8L3x7bwMAAA"
+  },
+  {
+    "version": "1.2",
+    "build": {
+      "schemaVersion": 1,
+      "environment": "GAL-v97d",
+      "dataHashes": [
+        "9e3532250cdb611a4cc989997c8f97fcec2d6c422063a845e6c43cd538c30603",
+        "c9eb9b8b76f5a2db6de14523205253102509b07dfac47b1da090c27d0b5a8893",
+        "163acc749ee9d647a0a7122d1f93b3c7ee9859142c9acabf1d7528591f5bc539",
+        "c6b8b5f2256a34ea4cefe89216cec10edd7cb1fbde46f76daf28cbd1aa088117",
+        "49a651266e3e68baa6fd3e7de7bfdf28e10ffdf2686bd584ad103045a2386a22"
+      ],
+      "name": "Compatibility example 1.2",
+      "level": 100,
+      "gender": "male",
+      "attributes": [
+        0,
+        0,
+        0
+      ],
+      "masteries": [
+        "1",
+        null
+      ],
+      "skills": {
+        "records/skills/playerclass01/_classtraining_class01.dbr": 1
+      },
+      "equipment": {},
+      "stars": [],
+      "bindings": {},
+      "buffs": {},
+      "difficulty": "ultimate",
+      "weaponSet": 1,
+      "questSkillPoints": 13,
+      "questAttributePoints": 10,
+      "settings": {
+        "rollMode": "average",
+        "ranges": true,
+        "ignoreSkillLimits": false,
+        "ignoreDevotionRequirements": false,
+        "highlightMI": true,
+        "highestLevel": true,
+        "developerMode": false
+      }
+    },
+    "shareCode": "DB1.H4sIAAAAAAAACkVS22ocORD9lVDP2liX1q3fwgZ2F2xYEtiXxYSSVJoRUXePJc0kxvjfQ884yVvpnNKpU5cX6PFIC_5HrZdthVkwoPVS2rYutA6Y4a8P939cvE3AIOHAv7EfqcP8P3hSWkmpeUzBCIFTjN5572102dscKcpk4iQlNwrdpMnEScWklYuKG66AQfQUfHDBmqxRpmASiUlLJbmWWgkuNfeB25QxTjaIhNzzKG3iQaNzfpcQRmGMdvJEPpnJIkcrpEwiexVUtETeaS8mGT1GDFkkq-WOZB2iVn53YYILOkupDaqJcIqUyXkpTKQoOKVkYxA5JJpMtiZhli6GJBC5c0JYYDB5NFpIY0iRcQHR5KTIJrIhpywdCZ73wDgTknYTJsEVnzRK5QxKCY8MVlwIZvhzW044Sii1jOd39B2XU6V34r0EBpUuVGEWnDM40JqowQwLVgIGOEYr4Tyuy-GMM_7IYME-qJXbwgSw9VzrI4P-tdTaYX6BRnFrqd_dkLtTxWdqsWLvXNx9uQajYVnLevjyBr9PocEsXhnQ07mcbmfy8sqgD2x7oUcGoayprId-I8I557cwlZxLPNfxDDOc6ygLjt39N8LTtn6mcb3ApzP18Xm39O9W1tFhFuoN_fCzzV8MZ9BpjLdy0LZaH7a0jxIv1PCwyzdcD_sQRjsTg3JYt0ZX_fuylF0lY-2_mI902UbZ1k97g432Dn-nHMvhWMvhOB7--am3Q9TH_W07Nyztj-1E7ebl-vn19Qe4SLNpbwMAAA"
+  },
+  {
+    "version": "1.3",
+    "build": {
+      "schemaVersion": 1,
+      "environment": "GAL-v97d",
+      "dataHashes": [
+        "9e3532250cdb611a4cc989997c8f97fcec2d6c422063a845e6c43cd538c30603",
+        "c9eb9b8b76f5a2db6de14523205253102509b07dfac47b1da090c27d0b5a8893",
+        "163acc749ee9d647a0a7122d1f93b3c7ee9859142c9acabf1d7528591f5bc539",
+        "c6b8b5f2256a34ea4cefe89216cec10edd7cb1fbde46f76daf28cbd1aa088117",
+        "49a651266e3e68baa6fd3e7de7bfdf28e10ffdf2686bd584ad103045a2386a22"
+      ],
+      "name": "Compatibility example 1.3",
+      "level": 100,
+      "gender": "male",
+      "attributes": [
+        0,
+        0,
+        0
+      ],
+      "masteries": [
+        "1",
+        null
+      ],
+      "skills": {
+        "records/skills/playerclass01/_classtraining_class01.dbr": 1
+      },
+      "equipment": {},
+      "stars": [],
+      "bindings": {},
+      "buffs": {},
+      "difficulty": "ultimate",
+      "weaponSet": 1,
+      "questSkillPoints": 13,
+      "questAttributePoints": 10,
+      "settings": {
+        "rollMode": "average",
+        "ranges": true,
+        "ignoreSkillLimits": false,
+        "ignoreDevotionRequirements": false,
+        "highlightMI": true,
+        "highestLevel": true,
+        "developerMode": false
+      }
+    },
+    "shareCode": "DB1.H4sIAAAAAAAACkVS24ocOQz9laBnb8aX8q3ewgZ2F2ZgSWBfliHIttxt4qrqsd2dDMP8e6juSfImH8lH50h6gR6PtOB_1HrZVpgFA1ovpW3rQuuAGf76cP_HxdsEDBIO_Bv7kTrM_4MnpZWUmscUjBA4xeid995Gl73NkaJMJk5ScqPQTZpMnFRMWrmouOEKGERPwQcXrMkaZQomkZi0VJJrqZXgUnMfuE0Z42SDSMg9j9ImHjQ653cKYRTGaCdP5JOZLHK0QsoksldBRUvknfZiktFjxJBFslruSNYhauV3FSa4oLOU2qCaCKdImZyXwkSKglNKNgaRQ6LJZGsSZuliSAKROyeEBQaTR6OFNIYUGRcQTU6KbCIbcsrSkeB5D4wzIWk3YRJc8UmjVM6glPDIYMWFYIY_t-WEo4RSy3h-R99xOVV6J97vZitdqMIsOGdwoDVRgxkWrAQMcIxWwnlcl8MZZ_yRwYJ9UCu3hQlg67nWRwb9a6m1w_wCjeLWUr-7IXenis_UYsXeubj7cg1Gw7KW9fDlDX6fQoNZvDKgp3M53c7k5ZVBH9j2Ro8MQllTWQ_9lgjnnN_CVHIu8VzHM8xwrqMsOHb13whP2_qZxvUCn87Ux-dd0r9bWUeHWag39MNPm78ynEGnMd7aQdtqfdjSPkq8UMPDTt9wPexDGO1MDMph3Rpd-e_LUnaWjLX_ynykyzbKtn7aDTbaHf4uOZbDsZbDcTz885Nvh6iP-9t2bljaH9uJ2k3L9fPr6w8EavZnbwMAAA"
+  },
+  {
+    "version": "1.4",
+    "build": {
+      "schemaVersion": 1,
+      "environment": "GAL-v97d",
+      "dataHashes": [
+        "9e3532250cdb611a4cc989997c8f97fcec2d6c422063a845e6c43cd538c30603",
+        "c9eb9b8b76f5a2db6de14523205253102509b07dfac47b1da090c27d0b5a8893",
+        "163acc749ee9d647a0a7122d1f93b3c7ee9859142c9acabf1d7528591f5bc539",
+        "c6b8b5f2256a34ea4cefe89216cec10edd7cb1fbde46f76daf28cbd1aa088117",
+        "49a651266e3e68baa6fd3e7de7bfdf28e10ffdf2686bd584ad103045a2386a22"
+      ],
+      "name": "Compatibility example 1.4",
+      "level": 100,
+      "gender": "male",
+      "attributes": [
+        0,
+        0,
+        0
+      ],
+      "masteries": [
+        "1",
+        null
+      ],
+      "skills": {
+        "records/skills/playerclass01/_classtraining_class01.dbr": 1
+      },
+      "equipment": {},
+      "stars": [],
+      "bindings": {},
+      "buffs": {},
+      "difficulty": "ultimate",
+      "weaponSet": 1,
+      "questSkillPoints": 13,
+      "questAttributePoints": 10,
+      "settings": {
+        "rollMode": "average",
+        "ranges": true,
+        "allowOvercap": false,
+        "showPetStats": true,
+        "showPetSkills": false,
+        "ignoreSkillLimits": false,
+        "ignoreDevotionRequirements": false,
+        "highlightMI": true,
+        "highestLevel": true,
+        "developerMode": false
+      }
+    },
+    "shareCode": "DB1.H4sIAAAAAAAACl2SXWscOwyG_0rRtU_jj7HHnrvSA6eFlJYGelNCkG151xzPzNb2bhpC_nuZ3U0LvZMfyfp4pWdoYU8zfqPa8rrAJBjQcsp1XWZaOkzw37vbf05ujMAgYscP2PbUYPoOjpRWUmoeojdC4BCCs865MdjkxhQoyGjCICU3Cu2gyYRBhaiVDYobroBBcOSdt340SaOM3kQSg5ZKci21Elxq7jwfY8IwjF5E5I4HOUbuNVrrthTCKAxhHByRi2YYkeMopIwiOeVVGImc1U4MMjgM6JOIo5YbSdoHrdzWhfHW6ySlNqgGwiFQIuukMIGC4BTjGLxIPtJg0mgiJmmDjwKRWyvECAwGh0YLaQwpMtYjmhQVjZFGn2KSlgRPm2Gs8VHbAaPgig8apbIGpYR7BgvOBBO8X-cD9uxzyf3pDf3E-VDojXg7AINCJyowCc4Z7GiJVGGCGQsBA-y9Zn_s5-Vwxhm_ZzBj61TzZWEC2HIs5Z5B-z-X0mB6hkphrbHdXMjNoeAT1VCwNS5uHs5Gr5iXvOwervht9BUm8cKAfhzz4XImzy8MWse6Fbpn4PMS87JrF4c_pnQ1Y04ph2PpTzDBsfQ8Y9-6fyQ8rMsd9fMF_jhS63dbS1_WvPQGk1BX-u51zN8ezqBR79dyUNdSPq1xkxJPVHG3pa-47DYRej0SAyxlffx8ohrwAFPC0ohB26-PX6jfdey_A1_ZVa5rZN4ta6UzvM1z7n97_qXT2vO6fN30qbQJ9Cdkn3f7knf7_unja5UNUeu3l-VeWNwe64HqZZTz55eXXx1QIYiuAwAA"
+  },
+  {
+    "version": "1.5",
+    "build": {
+      "schemaVersion": 1,
+      "environment": "GAL-v97d",
+      "dataHashes": [
+        "9e3532250cdb611a4cc989997c8f97fcec2d6c422063a845e6c43cd538c30603",
+        "c9eb9b8b76f5a2db6de14523205253102509b07dfac47b1da090c27d0b5a8893",
+        "163acc749ee9d647a0a7122d1f93b3c7ee9859142c9acabf1d7528591f5bc539",
+        "c6b8b5f2256a34ea4cefe89216cec10edd7cb1fbde46f76daf28cbd1aa088117",
+        "49a651266e3e68baa6fd3e7de7bfdf28e10ffdf2686bd584ad103045a2386a22"
+      ],
+      "name": "Compatibility example 1.5",
+      "level": 100,
+      "gender": "male",
+      "attributes": [
+        0,
+        0,
+        0
+      ],
+      "masteries": [
+        "1",
+        null
+      ],
+      "skills": {
+        "records/skills/playerclass01/_classtraining_class01.dbr": 1
+      },
+      "equipment": {},
+      "stars": [],
+      "bindings": {},
+      "buffs": {},
+      "difficulty": "ultimate",
+      "weaponSet": 1,
+      "questSkillPoints": 13,
+      "questAttributePoints": 10,
+      "settings": {
+        "rollMode": "average",
+        "ranges": true,
+        "allowOvercap": false,
+        "showPetStats": true,
+        "showPetSkills": false,
+        "ignoreSkillLimits": false,
+        "ignoreDevotionRequirements": false,
+        "highlightMI": true,
+        "highestLevel": true,
+        "developerMode": false
+      }
+    },
+    "shareCode": "DB1.H4sIAAAAAAAACl2SXWscOwyG_0rRtU_jj7HHnrvSA6eFlJYGelNCkG151xzPzNb2bhpC_nuZ3U0LvZMfyfp4pWdoYU8zfqPa8rrAJBjQcsp1XWZaOkzw37vbf05ujMAgYscP2PbUYPoOjpRWUmoeojdC4BCCs865MdjkxhQoyGjCICU3Cu2gyYRBhaiVDYobroBBcOSdt340SaOM3kQSg5ZKci21Elxq7jwfY8IwjF5E5I4HOUbuNVrrthTCKAxhHByRi2YYkeMopIwiOeVVGImc1U4MMjgM6JOIo5YbSdoHrdzWhfHW6ySlNqgGwiFQIuukMIGC4BTjGLxIPtJg0mgiJmmDjwKRWyvECAwGh0YLaQwpMtYjmhQVjZFGn2KSlgRPm2Gs8VHbAaPgig8apbIGpYR7BgvOBBO8X-cD9uxzyf3pDf3E-VDojXirgUGhExWYBOcMdrREqjDBjIWAAfZesz_283I444zfM5ixdar5sjABbDmWcs-g_Z9LaTA9Q6Ww1thuLuTmUPCJaijYGhc3D2ejV8xLXnYPV_w2-gqTeGFAP475cDmT5xcGrWPdCt0z8HmJedm1i8MfU7qaMaeUw7H0J5jgWHqesW_dPxIe1uWO-vkCfxyp9butpS9rXnqDSagrffc65m8PZ9Co92s5qGspn9a4SYknqrjb0ldcdpsIvR6JAZayPn4-UQ14gClhacSg7dfHL9TvOvbfga_sKtc1Mu-WtdIZ3uY59789_9Jp7Xldvm76VNoE-hOyz7t9ybt9__TxtcqGqPXby3IvLG6P9UD1Msr588vLLw0GxWyuAwAA"
+  },
+  {
+    "version": "1.6",
+    "build": {
+      "schemaVersion": 1,
+      "environment": "GAL-v97d",
+      "dataHashes": [
+        "9e3532250cdb611a4cc989997c8f97fcec2d6c422063a845e6c43cd538c30603",
+        "c9eb9b8b76f5a2db6de14523205253102509b07dfac47b1da090c27d0b5a8893",
+        "163acc749ee9d647a0a7122d1f93b3c7ee9859142c9acabf1d7528591f5bc539",
+        "c6b8b5f2256a34ea4cefe89216cec10edd7cb1fbde46f76daf28cbd1aa088117",
+        "49a651266e3e68baa6fd3e7de7bfdf28e10ffdf2686bd584ad103045a2386a22"
+      ],
+      "name": "Compatibility example 1.6",
+      "level": 100,
+      "gender": "male",
+      "attributes": [
+        0,
+        0,
+        0
+      ],
+      "masteries": [
+        "1",
+        null
+      ],
+      "skills": {
+        "records/skills/playerclass01/_classtraining_class01.dbr": 1
+      },
+      "equipment": {},
+      "stars": [],
+      "bindings": {},
+      "buffs": {},
+      "difficulty": "ultimate",
+      "weaponSet": 1,
+      "questSkillPoints": 13,
+      "questAttributePoints": 10,
+      "settings": {
+        "rollMode": "average",
+        "ranges": true,
+        "allowOvercap": false,
+        "showPetStats": true,
+        "showPetSkills": false,
+        "ignoreSkillLimits": false,
+        "ignoreDevotionRequirements": false,
+        "highlightMI": true,
+        "highestLevel": true,
+        "developerMode": false
+      }
+    },
+    "shareCode": "DB1.H4sIAAAAAAAACl2SXWscOwyG_0rRtU_jj7HHnrvSA6eFlJYGelNCkG151xzPzNb2bhpC_nuZ3U0LvZMfyfp4pWdoYU8zfqPa8rrAJBjQcsp1XWZaOkzw37vbf05ujMAgYscP2PbUYPoOjpRWUmoeojdC4BCCs865MdjkxhQoyGjCICU3Cu2gyYRBhaiVDYobroBBcOSdt340SaOM3kQSg5ZKci21Elxq7jwfY8IwjF5E5I4HOUbuNVrrthTCKAxhHByRi2YYkeMopIwiOeVVGImc1U4MMjgM6JOIo5YbSdoHrdzWhfHW6ySlNqgGwiFQIuukMIGC4BTjGLxIPtJg0mgiJmmDjwKRWyvECAwGh0YLaQwpMtYjmhQVjZFGn2KSlgRPm2Gs8VHbAaPgig8apbIGpYR7BgvOBBO8X-cD9uxzyf3pDf3E-VDojXhrgEGhExWYBOcMdrREqjDBjIWAAfZesz_283I444zfM5ixdar5sjABbDmWcs-g_Z9LaTA9Q6Ww1thuLuTmUPCJaijYGhc3D2ejV8xLXnYPV_w2-gqTeGFAP475cDmT5xcGrWPdCt0z8HmJedm1i8MfU7qaMaeUw7H0J5jgWHqesW_dPxIe1uWO-vkCfxyp9butpS9rXnqDSagrffc65m8PZ9Co92s5qGspn9a4SYknqrjb0ldcdpsIvR6JAZayPn4-UQ14gClhacSg7dfHL9TvOvbfga_sKtc1Mu-WtdIZ3uY59789_9Jp7Xldvm76VNoE-hOyz7t9ybt9__TxtcqGqPXby3IvLG6P9UD1Msr588vLL3z6mJquAwAA"
+  },
+  {
+    "version": "1.7",
+    "build": {
+      "schemaVersion": 1,
+      "environment": "GAL-v97d",
+      "dataHashes": [
+        "9e3532250cdb611a4cc989997c8f97fcec2d6c422063a845e6c43cd538c30603",
+        "c9eb9b8b76f5a2db6de14523205253102509b07dfac47b1da090c27d0b5a8893",
+        "163acc749ee9d647a0a7122d1f93b3c7ee9859142c9acabf1d7528591f5bc539",
+        "c6b8b5f2256a34ea4cefe89216cec10edd7cb1fbde46f76daf28cbd1aa088117",
+        "49a651266e3e68baa6fd3e7de7bfdf28e10ffdf2686bd584ad103045a2386a22"
+      ],
+      "name": "Compatibility example 1.7",
+      "level": 100,
+      "gender": "male",
+      "attributes": [
+        0,
+        0,
+        0
+      ],
+      "masteries": [
+        "1",
+        null
+      ],
+      "skills": {
+        "records/skills/playerclass01/_classtraining_class01.dbr": 1
+      },
+      "equipment": {},
+      "stars": [],
+      "bindings": {},
+      "buffs": {},
+      "difficulty": "ultimate",
+      "weaponSet": 1,
+      "questSkillPoints": 13,
+      "questAttributePoints": 10,
+      "settings": {
+        "rollMode": "average",
+        "ranges": true,
+        "allowOvercap": false,
+        "showPetStats": true,
+        "showPetSkills": false,
+        "ignoreSkillLimits": false,
+        "ignoreDevotionRequirements": false,
+        "highlightMI": true,
+        "highestLevel": true,
+        "developerMode": false
+      }
+    },
+    "shareCode": "DB1.H4sIAAAAAAAACl2SXWscOwyG_0rRtU_jj7HHnrvSA6eFlJYGelNCkG151xzPzNb2bhpC_nuZ3U0LvZMfyfp4pWdoYU8zfqPa8rrAJBjQcsp1XWZaOkzw37vbf05ujMAgYscP2PbUYPoOjpRWUmoeojdC4BCCs865MdjkxhQoyGjCICU3Cu2gyYRBhaiVDYobroBBcOSdt340SaOM3kQSg5ZKci21Elxq7jwfY8IwjF5E5I4HOUbuNVrrthTCKAxhHByRi2YYkeMopIwiOeVVGImc1U4MMjgM6JOIo5YbSdoHrdzWhfHW6ySlNqgGwiFQIuukMIGC4BTjGLxIPtJg0mgiJmmDjwKRWyvECAwGh0YLaQwpMtYjmhQVjZFGn2KSlgRPm2Gs8VHbAaPgig8apbIGpYR7BgvOBBO8X-cD9uxzyf3pDf3E-VDojXi7lSl0ogKT4JzBjpZIFSaYsRAwwN5r9sd-Xg5nnPF7BjO2TjVfFiaALcdS7hm0_3MpDaZnqBTWGtvNhdwcCj5RDQVb4-Lm4Wz0innJy-7hit9GX2ESLwzoxzEfLmfy_MKgdaxboXsGPi8xL7t2cfhjSlcz5pRyOJb-BBMcS88z9q37R8LDutxRP1_gjyO1fre19GXNS28wCXWl717H_O3hDBr1fi0HdS3l0xo3KfFEFXdb-orLbhOh1yMxwFLWx88nqgEPMCUsjRi0_fr4hfpdx_478JVd5bpG5t2yVjrD2zzn_rfnXzqtPa_L102fSptAf0L2ebcvebfvnz6-VtkQtX57We6Fxe2xHqheRjl_fnn5BWysfH6uAwAA"
+  }
+]

@@ -1,0 +1,9 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),z=require('node:zlib'),{pack,HOME}=require('./read-pack.cjs'),C=require('../app/core.js');
+global.DawnCore=C;global.RemData=require('../app/arc-reader.js');global.DawnCombat=require('../app/combat.js');const E=require('../app/effect-model.js'),core=pack('core'),research=pack('research'),devotions=pack('devotions').constellations,records=pack('effects').records;
+research.rr=research.rr.filter(x=>x.sourceKind!=='devotion');
+for(const c of devotions)for(const s of c.stars){const max=C.devotionMax(s),rows=new Map();for(let rank=1;rank<=max;rank++)for(const e of E.walk(s.id,records,rank,100))for(const effect of E.reductions(e).filter(x=>x.metric==='resistance')){const id=s.id+'::'+e.id+'#'+effect.key;let row=rows.get(id);if(!row){row={id,effectId:e.id,key:effect.key,rootId:s.id,sourceId:s.id,sourceKind:'devotion',name:s.name,parent:c.name,mastery:'',kind:effect.kind,types:effect.types,values:Array(max).fill(0),max,normalMax:max,hardMax:max,fixedRank:null,previewRank:null,duration:effect.duration};rows.set(id,row);}row.values[rank-1]=effect.value;}research.rr.push(...rows.values());}
+core.manifest.appVersion='1.71';
+function write(name,payload){fs.writeFileSync(path.join(HOME,'app/data',name+'.js'),`DawnData.register(${JSON.stringify(name)},${JSON.stringify(z.gzipSync(Buffer.from(JSON.stringify(payload))).toString('base64'))});\n`);}
+write('core',core);write('research',research);fs.writeFileSync(path.join(HOME,'app/data/manifest.js'),'globalThis.DawnManifest='+JSON.stringify(core.manifest)+';\n');
+console.log(JSON.stringify({version:'1.71',powers:devotions.flatMap(c=>c.stars).filter(s=>C.first(s.fields,'Class','')!=='Skill_Passive').length,devotionRR:research.rr.filter(x=>x.sourceKind==='devotion').length}));

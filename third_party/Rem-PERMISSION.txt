@@ -1,0 +1,18 @@
+Rem Skill Planner: Project-specific permission / 项目用途授权
+
+Source: user-supplied Discord screenshot, dated 2026-10-17.
+Request from drchan089 (transcribed; conversational formatting omitted):
+"Can I use your Skill Planner's code in my recently vibe coding Build
+Caculator named GrimWeaver for grimarillion? It is completely free and
+open-source. I will drop it here once I finish."
+Reply by Rem: "Sure".
+
+The project owner supplied this evidence and is responsible for retaining
+the original. It supports the stated free/open-source GrimWeaver integration.
+It does not specify a general SPDX license, an unrestricted relicensing grant,
+or rights in third-party game assets. Rem's attribution is retained.
+
+中文：项目发起者提供的Discord截图中，drchan089询问能否在用于Grimarillion的
+免费开源GrimWeaver中使用Skill Planner代码，Rem明确回复“Sure”。按该请求
+记录用途授权；并非给Rem原项目自行指定MIT或其他统一许可证。原始截图私下存档。
+Rem衍生文件：app/rem-data.js、app/arc-reader.js、app/stat-text.js。

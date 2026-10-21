@@ -1,0 +1,41 @@
+MIT License
+
+Copyright (c) 2026 drchan089 (大包)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Scope / 许可范围
+MIT applies only to independently authored GrimWeaver code and its original
+application mark. Game/mod data, artwork, translations and Rem-derived helpers
+retain their original ownership and are not relicensed by this project.
+On 2026-10-17, the project owner supplied a Discord screenshot: drchan089 asked
+Rem to use Skill Planner code in GrimWeaver for Grimarillion, explicitly
+described as completely free and open-source. Rem replied "Sure".
+This is recorded as project-specific permission for the stated integration,
+not a blanket MIT license or permission to relicense Rem's original project.
+Original attribution is retained. The underlying game/mod asset rights remain
+separate. Authorization evidence is kept privately by the project owner.
+
+MIT仅适用于GrimWeaver自编代码和原创应用图标。游戏/模组数据、美术、汉化及Rem
+派生助手保留原作者权利，不由本项目重新授权。2026-10-17，项目发起者提供Discord
+授权截图：drchan089明确说明GrimWeaver是用于Grimarillion的免费开源构筑工具，
+询问能否使用Skill Planner代码；Rem回复“Sure”。据此记录为针对该用途的授权，
+并保留Rem署名；不将此回复扩展为Rem原项目的通用MIT许可或任意再许可权。
+版权声明不代替游戏、模组和其他第三方资源各自的授权。
+中文概述：本项目自编代码可使用、复制、修改和分发，须保留版权及许可；按现状提供。

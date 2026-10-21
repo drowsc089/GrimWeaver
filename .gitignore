@@ -1,0 +1,28 @@
+# Local data, user files and test output
+/verification/
+/data-cache/
+/data-source/
+/game-source/
+*.gdc
+*.gsh
+preferences.json
+.env
+.env.*
+!.env.example
+
+# Build output and archives
+**/bin/
+**/obj/
+**/publish/
+/GrimWeaver.exe
+*.zip
+*.sha256
+node_modules/
+
+# Editor and operating-system state
+.vs/
+.vscode/
+*.user
+*.suo
+Thumbs.db
+.DS_Store
