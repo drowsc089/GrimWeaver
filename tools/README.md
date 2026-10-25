@@ -2,6 +2,8 @@
 
 Normal launcher builds use the bundled `app/data` and assets. No game extraction is required. The scripts below are optional incremental maintenance tools, not a complete from-scratch asset exporter.
 
+For v1.82, `verify-v182.cjs` checks final-type aggregation and reconciliation with player/pet totals. `verify-browser-v182.cjs` checks composition tables, expandable source details and narrow-screen layouts. `release-docs-v182.cjs`, `package-v182.ps1` and `verify-package-v182.ps1` generate/check the current delivery.
+
 正常构建直接使用随库数据与素材。以下仅为可选的增量维护工具，不是完整的从零素材导出流程。
 
 | Environment variable | Input / 用途 |

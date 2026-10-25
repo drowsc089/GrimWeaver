@@ -4,9 +4,18 @@
 
 **Offline build planner for Grimarillion v97d (GAL).**
 
-[Download](https://github.com/drowsc089/GrimWeaver/releases/latest) · [v1.81](https://github.com/drowsc089/GrimWeaver/releases/tag/v1.81) · [Changelog](docs/CHANGELOG.html) · [Notices](docs/NOTICE.html)
+[Download](https://github.com/drowsc089/GrimWeaver/releases/latest) · [v1.82](https://github.com/drowsc089/GrimWeaver/releases/tag/v1.82) · [Changelog](docs/CHANGELOG.html) · [Notices](docs/NOTICE.html)
 
 ## English
+
+### New in v1.82
+
+- Added final damage-type composition below player/pet damage totals, merging all converted sources that end in the same type.
+- Direct hits and DoT per second have separate totals, type breakdowns and mean shares. The same display is used in the compact character panel, skill dialog, pet page and pet previews.
+- Original per-source calculations remain available as expandable details. Weapon hands stay separate; basic attack DPS now uses only direct damage, without multiplying DoT again by attack speed.
+- Fixed flat pet damage bonuses contributing to the lower bound but not the upper bound when combined with native damage ranges.
+
+[v1.82 details](docs/RELEASE_1_82.html). Existing build formats and read-only save import are unchanged.
 
 ### New in v1.81
 
@@ -29,7 +38,7 @@ The [v1.81 notes](docs/RELEASE_1_81.html) describe the remaining static-model li
 
 ### Download and Run
 
-Download `GrimWeaver_v1.81_GAL_Offline.zip` from [Releases](https://github.com/drowsc089/GrimWeaver/releases/latest), extract the complete folder and run `GrimWeaver.exe`. Requires Windows x64 and a modern browser. The launcher is self-contained; no .NET installation or Internet connection is required. The local address is `http://127.0.0.1:15688/`. Exit from the system tray to stop the service.
+Download `GrimWeaver_v1.82_GAL_Offline.zip` from [Releases](https://github.com/drowsc089/GrimWeaver/releases/latest), extract the complete folder and run `GrimWeaver.exe`. Requires Windows x64 and a modern browser. The launcher is self-contained; no .NET installation or Internet connection is required. The local address is `http://127.0.0.1:15688/`. Exit from the system tray to stop the service.
 
 SHA-256 sidecars accompany release archives. The application is not code-signed and Windows may display a first-run warning. Download from this repository's Releases and verify the checksum; do not disable system security protections.
 
@@ -52,7 +61,7 @@ The DB1 codec and `schemaVersion=1` remain stable, with unknown extension fields
 
 Install the **.NET 8 SDK**, then run `./tools/build-launcher.ps1` in PowerShell from the repository root. Run the resulting `GrimWeaver.exe`. Bundled UI, data and assets are sufficient; rebuilding the launcher does not require extracting game databases.
 
-With **Node.js 22+**, run `node tools/verify-compatibility.cjs` and `node tools/verify-v181.cjs`. Set `GRIMWEAVER_TEST_SAVE` to opt into read-only browser/native-save checks. Generated reports are ignored under `verification/`. See [tools/README.md](tools/README.md) for optional data-maintenance inputs.
+With **Node.js 22+**, run `node tools/verify-compatibility.cjs` and `node tools/verify-v182.cjs`. Set `GRIMWEAVER_TEST_SAVE` to opt into read-only browser/native-save checks. Generated reports are ignored under `verification/`. See [tools/README.md](tools/README.md) for optional data-maintenance inputs.
 
 ### Scope and Rights
 
@@ -65,6 +74,15 @@ Independently authored GrimWeaver code and the original application mark are [MI
 Author: **drchan089** · Contact: **drowsc@gmail.com**
 
 ## 简体中文
+
+### v1.82 更新
+
+- 总伤害下新增最终类型构成，将转换后类型相同的所有来源合并。
+- 直接伤害和每秒持续伤害分别显示合计、类型组成和平均占比，角色侧栏、技能弹窗、战宠页及技能预览统一展示。
+- 原逐来源计算保留为可展开明细。主副手分开；普通攻击DPS只使用直接伤害，不再把持续伤害重复乘攻速。
+- 修正战宠固定伤害与原生伤害区间叠加时，上限漏加固定加成的问题。
+
+[v1.82 详细说明](docs/RELEASE_1_82.html)。构筑格式与只读存档导入不变。
 
 ### v1.81 更新
 
@@ -87,7 +105,7 @@ Author: **drchan089** · Contact: **drowsc@gmail.com**
 
 ### 下载与运行
 
-1. 在 Releases 下载 `GrimWeaver_v1.81_GAL_Offline.zip`，解压整个文件夹。
+1. 在 Releases 下载 `GrimWeaver_v1.82_GAL_Offline.zip`，解压整个文件夹。
 2. 运行 `GrimWeaver.exe`。需要 Windows x64 和现代浏览器，无需安装 .NET，也无需联网。
 3. 本机页面为 `http://127.0.0.1:15688/`。从系统托盘退出程序可结束本机服务。
 
@@ -124,7 +142,7 @@ DB1 编码和 `schemaVersion=1` 保持兼容，保留未知扩展字段。软件
 
 ```powershell
 node tools/verify-compatibility.cjs
-node tools/verify-v181.cjs
+node tools/verify-v182.cjs
 ```
 
 可选的只读存档测试通过环境变量 `GRIMWEAVER_TEST_SAVE` 指定自己的 `.gdc` 文件；未指定则跳过该项。测试输出在忽略的 `verification/` 目录。数据维护说明见 [tools/README.md](tools/README.md)。不需要重新提取游戏数据库即可构建启动器。

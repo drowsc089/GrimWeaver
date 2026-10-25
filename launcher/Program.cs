@@ -39,7 +39,7 @@ internal static class Program
             {
                 using var client = new HttpClient { Timeout = TimeSpan.FromSeconds(2) };
                 var response = client.GetAsync(url).GetAwaiter().GetResult();
-                if (response.Headers.TryGetValues("X-DawnBuild-Version", out var values) && values.Contains("1.81"))
+                if (response.Headers.TryGetValues("X-DawnBuild-Version", out var values) && values.Contains("1.82"))
                 {
                     if (!args.Contains("--test")) Open(url);
                     return;
@@ -130,7 +130,7 @@ internal static class Program
         context.Response.ContentType = Path.GetExtension(file).ToLowerInvariant() switch { ".js" => "text/javascript; charset=utf-8", ".css" => "text/css; charset=utf-8", ".png" => "image/png", ".svg" => "image/svg+xml", ".ico" => "image/x-icon", ".txt" => "text/plain; charset=utf-8", ".json" => "application/json", _ => "text/html; charset=utf-8" };
         context.Response.Headers["Cache-Control"] = "no-cache";
         context.Response.Headers["X-Content-Type-Options"] = "nosniff";
-        context.Response.Headers["X-DawnBuild-Version"] = "1.81";
+        context.Response.Headers["X-DawnBuild-Version"] = "1.82";
         context.Response.Headers["Content-Security-Policy"] = "default-src 'self'; script-src 'self' 'unsafe-inline'; worker-src 'self' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self' blob:; connect-src 'self'; object-src 'none'; frame-src 'none'";
         await using var input = File.OpenRead(file);
         context.Response.ContentLength64 = input.Length;
