@@ -4,9 +4,18 @@
 
 **Offline build planner for Grimarillion v97d (GAL).**
 
-[Download](https://github.com/drowsc089/GrimWeaver/releases/latest) · [v1.8](https://github.com/drowsc089/GrimWeaver/releases/tag/v1.8) · [Changelog](docs/CHANGELOG.html) · [Notices](docs/NOTICE.html)
+[Download](https://github.com/drowsc089/GrimWeaver/releases/latest) · [v1.81](https://github.com/drowsc089/GrimWeaver/releases/tag/v1.81) · [Changelog](docs/CHANGELOG.html) · [Notices](docs/NOTICE.html)
 
 ## English
+
+### New in v1.81
+
+- Pet damage now applies pet-only conversion before destination-type bonuses, with base, modified, converted and pet-scaled breakdowns in the pet page and skill previews.
+- Player-scaling summons, including Blade Spirit, appear in **Offense > Learned skill damage** and use player conversion and destination bonuses, separately from pet-only properties.
+- Added player/pet conversion summaries and a full source inventory, separating global, skill-specific, inactive and current-pet-specific properties. Sources include equipped items, affixes, unlocked sets, learned passives, devotions and enabled buffs in the active weapon set.
+- Fixed inactive summon modifier slots being treated as rank one. Conversion over 100% is normalized and converted damage never converts twice.
+
+The [v1.81 notes](docs/RELEASE_1_81.html) describe the remaining static-model limits. Build formats, old links and read-only character import remain compatible.
 
 ### New in v1.8
 
@@ -19,7 +28,7 @@
 
 ### Download and Run
 
-Download `GrimWeaver_v1.8_GAL_Offline.zip` from [Releases](https://github.com/drowsc089/GrimWeaver/releases/latest), extract the complete folder and run `GrimWeaver.exe`. Requires Windows x64 and a modern browser. The launcher is self-contained; no .NET installation or Internet connection is required. The local address is `http://127.0.0.1:15688/`. Exit from the system tray to stop the service.
+Download `GrimWeaver_v1.81_GAL_Offline.zip` from [Releases](https://github.com/drowsc089/GrimWeaver/releases/latest), extract the complete folder and run `GrimWeaver.exe`. Requires Windows x64 and a modern browser. The launcher is self-contained; no .NET installation or Internet connection is required. The local address is `http://127.0.0.1:15688/`. Exit from the system tray to stop the service.
 
 SHA-256 sidecars accompany release archives. The application is not code-signed and Windows may display a first-run warning. Download from this repository's Releases and verify the checksum; do not disable system security protections.
 
@@ -42,7 +51,7 @@ The DB1 codec and `schemaVersion=1` remain stable, with unknown extension fields
 
 Install the **.NET 8 SDK**, then run `./tools/build-launcher.ps1` in PowerShell from the repository root. Run the resulting `GrimWeaver.exe`. Bundled UI, data and assets are sufficient; rebuilding the launcher does not require extracting game databases.
 
-With **Node.js 22+**, run `node tools/verify-compatibility.cjs` and `node tools/verify-v18.cjs`. Set `GRIMWEAVER_TEST_SAVE` to opt into read-only browser/native-save checks. Generated reports are ignored under `verification/`. See [tools/README.md](tools/README.md) for optional data-maintenance inputs.
+With **Node.js 22+**, run `node tools/verify-compatibility.cjs` and `node tools/verify-v181.cjs`. Set `GRIMWEAVER_TEST_SAVE` to opt into read-only browser/native-save checks. Generated reports are ignored under `verification/`. See [tools/README.md](tools/README.md) for optional data-maintenance inputs.
 
 ### Scope and Rights
 
@@ -56,6 +65,15 @@ Author: **drchan089** · Contact: **drowsc@gmail.com**
 
 ## 简体中文
 
+### v1.81 更新
+
+- 战宠先应用专用转换，再按转换后的伤害类型加成；战宠页和技能预览分列基础、修正、转换后与战宠加成后数值。
+- 刀灵等角色加成类召唤物进入“攻击 > 已学技能伤害”，读取角色转换与转换后加成，不混入战宠专用词条。
+- 增加角色/战宠转换汇总及完整来源表，区分全局、技能专用、未启用及当前战宠自身转换，覆盖当前武器组的装备、词缀、生效套装、已学被动、星座与已启用增益。
+- 修正召唤物未激活修正槽位被当成1级生效的问题。超过100%的竞争转换归一，已转换部分不会再次转换。
+
+仍为静态预估，限制见 [v1.81 说明](docs/RELEASE_1_81.html)。构筑格式、旧链接和只读存档导入保持兼容。
+
 ### v1.8 更新
 
 - 重新复核全部装备和词缀目录，按合并数据库、正权重来源表、制作、商店、任务与 GAL NPC 转换判断获取来源，补回旧 `records/items` 路径限制误排除的有效条目。
@@ -67,7 +85,7 @@ Author: **drchan089** · Contact: **drowsc@gmail.com**
 
 ### 下载与运行
 
-1. 在 Releases 下载 `GrimWeaver_v1.8_GAL_Offline.zip`，解压整个文件夹。
+1. 在 Releases 下载 `GrimWeaver_v1.81_GAL_Offline.zip`，解压整个文件夹。
 2. 运行 `GrimWeaver.exe`。需要 Windows x64 和现代浏览器，无需安装 .NET，也无需联网。
 3. 本机页面为 `http://127.0.0.1:15688/`。从系统托盘退出程序可结束本机服务。
 
@@ -104,7 +122,7 @@ DB1 编码和 `schemaVersion=1` 保持兼容，保留未知扩展字段。软件
 
 ```powershell
 node tools/verify-compatibility.cjs
-node tools/verify-v18.cjs
+node tools/verify-v181.cjs
 ```
 
 可选的只读存档测试通过环境变量 `GRIMWEAVER_TEST_SAVE` 指定自己的 `.gdc` 文件；未指定则跳过该项。测试输出在忽略的 `verification/` 目录。数据维护说明见 [tools/README.md](tools/README.md)。不需要重新提取游戏数据库即可构建启动器。

@@ -1,6 +1,7 @@
 (function(g){
 'use strict';
 const C=g.DawnCore,B=g.DawnCombat,{first,at,canon}=C;
+const V=g.GrimWeaverConversions||(typeof require==='function'?require('./conversion-model.js'):null),S=g.GrimWeaverSummons||(typeof require==='function'?require('./summon-model.js'):null);
 const types=B.DAMAGE,elemental=['Fire','Cold','Lightning'];
 const dots={Physical:'SlowPhysical',Fire:'SlowFire',Cold:'SlowCold',Lightning:'SlowLightning',Poison:'SlowPoison',Life:'SlowLife'};
 const weaponKinds=['sword','axe','mace','dagger','scepter','ranged1h','sword2h','axe2h','mace2h','ranged2h','spear','spear2h','staff','offhand','shield'];
@@ -10,7 +11,7 @@ const effectLink=k=>/^(buffSkillName|petSkillName|subSkillName|autoCastSkill|ski
 const damageField=k=>/^offensive(?:Physical|Pierce|Fire|Cold|Lightning|Poison|Life|Aether|Chaos|Elemental|Bleeding|SlowPhysical|SlowBleeding|SlowFire|SlowCold|SlowLightning|SlowPoison|SlowLife)(?:Min|Max)?$/.test(k);
 const modifier=n=>n.isModifier||/Modifier|Transmuter/.test(first(n.fields,'Class',''));
 const friendly=r=>first(r,'Class','')==='Skill_Passive'||/^(?:Skill_BuffSelf|Skill_BuffRadius|SkillBuff_Passive|SkillSecondary_BuffSelf)/.test(first(r,'Class',''))&&!/Attack/.test(first(r,'Class',''));
-function amount(r,type,rank=1){const key='offensive'+type,lo=at(r,key+'Min',rank)+at(r,key,rank),hi=(r[key+'Max']?at(r,key+'Max',rank):at(r,key+'Min',rank))+at(r,key,rank);return{lo,hi};}
+function amount(r,type,rank=1){const key='offensive'+type,lo=at(r,key+'Min',rank)+at(r,key,rank),hi=(at(r,key+'Max',rank)||at(r,key+'Min',rank))+at(r,key,rank);return{lo,hi};}
 function conversions(sources){const out=[];for(const s of sources)for(const key of Object.keys(s.fields||{})){const m=/^conversionInType(\d*)$/.exec(key);if(!m)continue;const pct=at(s.fields,'conversionPercentage'+m[1],s.rank),from=String(first(s.fields,key,'')).split(';'),to=String(first(s.fields,'conversionOutType'+m[1],'')).split(';');if(pct<=0)continue;for(let i=0;i<from.length;i++){const source=from[i].replace(/^offensive/,''),dest=(to[i]||to[0]||'').replace(/^offensive/,'');if(source&&source!==dest)out.push({from:source,to:dest,pct,sourceId:s.id,name:s.name});}}return out;}
 function applicable(c,type){if(c.from===type)return{...c,to:c.to};if(type.startsWith('Slow')&&directOf[type]===c.from&&dots[c.to])return{...c,to:dots[c.to]};if(c.from==='Elemental'&&elemental.includes(type))return c;if(c.from==='Elemental'&&['SlowFire','SlowCold','SlowLightning'].includes(type)&&dots[c.to])return{...c,to:dots[c.to]};return null;}
 function splitElemental(p){if(p.type!=='Elemental')return[p];return elemental.map(type=>({...p,type,portion:p.portion/3,trace:[...p.trace,{from:'Elemental',to:type,pct:100/3,stage:'elemental'}]}));}
@@ -42,16 +43,26 @@ function ancestors(node,nodes,seen=new Set()){if(!node||seen.has(node.id))return
 function weaponAllowed(build,items,fields){const required=requiredWeapons(fields);if(!required.length)return true;const main=items.get(build.equipment['weapon'+build.weaponSet]?.item),off=main?.twoHanded?null:items.get(build.equipment['offhand'+build.weaponSet]?.item);return[main,off].filter(Boolean).some(x=>required.includes(x.type.replace(/^weapon_|^weaponarmor_/,'')));}
 function analyze(build,data,items,classes,devotions,records,result,options={}){
  result||=C.calculate(build,data,items,classes,devotions);
- const globalRules=conversions(globalSources(build,data,items,classes,result)),gearMods=C.bonuses(build,data,items).flatMap(s=>C.itemModifiers(s)),out=[],nodes=new Map(classes.flatMap(c=>c.skills.map(n=>[n.id,n]))),weapon=rawWeapon(build,items,result,options.hand||'main');
+ const globalRules=V.collect(build,data,items,classes,devotions).character.filter(r=>r.active),gear=C.bonuses(build,data,items),gearMods=gear.flatMap(s=>C.itemModifiers(s)),out=[],nodes=new Map(classes.flatMap(c=>c.skills.map(n=>[n.id,n]))),weapon=rawWeapon(build,items,result,options.hand||'main');
  const rankOf=n=>C.skillRank(build,n,data,items,classes.find(c=>c.skills.some(s=>s.id===n.id)));
  for(const c of classes)for(const root of c.skills){
   if(!(build.skills[root.id]>0)||modifier(root))continue;
   const required=requiredWeapons(root.fields),activeWeapon=required.length===1&&required[0]==='shield'?rawWeapon(build,items,result,'shield'):weapon;
   const rank=rankOf(root),learned=c.skills.filter(n=>(build.skills[n.id]||0)>0&&modifier(n)&&ancestors(n,nodes).has(root.id)),inherited=learned.filter(n=>!n.fields.petSkillName).map(n=>({...n,rank:rankOf(n)})),entries=[],missing=[],seen=new Set();
-  function walk(raw,rk,relation='root',conditional=false,depth=0,summoned=false){const id=canon(raw),meta=records[id],fields=meta?.fields||nodes.get(id)?.fields;if(!fields){missing.push(id);return;}if(depth>24||seen.has(id))return;seen.add(id);const cls=first(fields,'Class','');if(['Pet','Monster'].includes(cls)){if(!/playerscaling/i.test(first(fields,'templateName','')))return;summoned=true;}
-   const entry={id,fields,rank:rk,relation,conditional,name:meta?.name,summoned};entries.push(entry);
-   for(const[key,a]of Object.entries(fields))if(effectLink(key)){const target=a[Math.min(rk-1,a.length-1)];if(typeof target!=='string'||!target.endsWith('.dbr'))continue;const childRank=key==='autoCastSkill'?at(fields,'autoCastSkillLevel',rk)||rk:rk;walk(target,childRank,key,conditional||key==='autoCastSkill'||key==='dyingSkillName',depth+1,summoned);}
-   if(['Pet','Monster'].includes(cls))for(const key of Object.keys(fields)){const m=/^skillName(\d+)$/.exec(key);if(!m)continue;const n=first(fields,'skillLevel'+m[1],1),sr=typeof n==='number'?n:B.formula(n,{charLevel:build.level,CHARLEVEL:build.level,skillLevel:rk});if(sr>0)walk(first(fields,key,''),Math.floor(sr),key,conditional,depth+1,summoned);}
+  function walk(raw,rk,relation='root',conditional=false,depth=0,summoned=false,summonSources=[]){
+   const id=canon(raw),meta=records[id],fields=meta?.fields||nodes.get(id)?.fields;if(!fields){missing.push(id);return;}if(depth>24||seen.has(id))return;seen.add(id);
+   const isCreature=S.creature(fields);let skillMap=null;
+   if(isCreature){if(!S.playerScaling(fields))return;summoned=true;skillMap=S.skills(fields,rk,build.level,gearMods.filter(m=>m.target===root.id),gear,inherited);summonSources=[...skillMap].filter(([,level])=>level>0).map(([id,rank])=>({id,rank,fields:records[id]?.fields||{}})).filter(s=>S.passive(s.fields));}
+   const entry={id,fields,rank:rk,relation,conditional,name:meta?.name,summoned,summonSources};entries.push(entry);
+   for(const[key,a]of Object.entries(fields))if(effectLink(key)){
+    if(isCreature&&['spawnObjects','modSpawnObjects'].includes(key))continue;
+    const override=key==='spawnObjects'?[...inherited,...gearMods.filter(m=>m.target===root.id)].findLast(s=>s.fields.modSpawnObjects)?.fields.modSpawnObjects:null,target=(override||a)[Math.min(rk-1,(override||a).length-1)];
+    if(typeof target!=='string'||!target.endsWith('.dbr'))continue;
+    const targetId=canon(target);if(skillMap?.has(targetId)&&!skillMap.get(targetId))continue;
+    const childRank=skillMap?.get(targetId)||(key==='autoCastSkill'?at(fields,'autoCastSkillLevel',rk)||rk:rk);
+    walk(target,childRank,key,conditional||key==='autoCastSkill'||key==='dyingSkillName',depth+1,summoned,summonSources);
+   }
+   if(skillMap)for(const[id,level]of skillMap)if(level>0)walk(id,level,'summonSkill',conditional,depth+1,summoned,summonSources);
   }
   walk(root.id,rank,'root',/WeaponPool|PassiveOn|OnHit|OnCrit|OnKill/.test(first(root.fields,'Class','')));
   const hasRootDamage=Object.keys(root.fields).some(damageField)||at(root.fields,'weaponDamagePct',rank)>0;
@@ -59,14 +70,14 @@ function analyze(build,data,items,classes,devotions,records,result,options={}){
   const rootMods=gearMods.filter(m=>m.target===root.id),rootSources=[{id:root.id,fields:root.fields,rank},...inherited,...rootMods];
   const chargeCap=Math.max(1,at(root.fields,'skillChargeLevel',rank)),charges=Math.max(1,Math.min(chargeCap,options.charges?.[root.id]||1)),charge=root.fields.skillChargeMultipliers?.[charges-1]??100,groups=[];
   for(const entry of entries){
-   if(friendly(entry.fields)||['Pet','Monster'].includes(first(entry.fields,'Class','')))continue;
-   const exact=gearMods.filter(m=>m.target===entry.id&&!(entry.id===root.id&&hostId!==root.id)),applyInherited=entry.id===hostId,mods=[...(applyInherited?inherited:[]),...(applyInherited&&hostId!==root.id?rootMods:[]),...exact],sources=[entry,...mods];
+   if(friendly(entry.fields)||S.creature(entry.fields)||S.passive(entry.fields))continue;
+   const exact=gearMods.filter(m=>m.target===entry.id&&!(entry.id===root.id&&hostId!==root.id)),applyInherited=entry.id===hostId,mods=[...(applyInherited?inherited:[]),...(applyInherited&&hostId!==root.id?rootMods:[]),...exact],sources=[entry,...mods,...entry.summonSources.filter(s=>first(s.fields,'Class','')==='Skill_Modifier')];
    const uniqueKey=s=>(s.sourceId||s.id)+'|'+s.id+'|'+(s.slot||'');
-   const pctSources=[entry,...(entry.id===root.id||!entry.conditional?rootSources:[]),...exact].filter((s,i,a)=>a.findIndex(x=>uniqueKey(x)===uniqueKey(s))===i),localRules=conversions(pctSources),packets=[];
+   const pctSources=[entry,...(entry.id===root.id||!entry.conditional?rootSources:[]),...exact].filter((s,i,a)=>a.findIndex(x=>uniqueKey(x)===uniqueKey(s))===i),localRules=conversions([...pctSources,...entry.summonSources]),packets=[];
    for(const type of types){const base=amount(entry.fields,type,entry.rank),modified=sources.map(s=>amount(s.fields,type,s.rank)).reduce((a,n)=>({lo:a.lo+n.lo,hi:a.hi+n.hi}),{lo:0,hi:0});if(!modified.lo&&!modified.hi)continue;packets.push({type,origin:'skill',baseLo:base.lo,baseHi:base.hi,modifiedLo:Math.max(0,modified.lo),modifiedHi:Math.max(0,modified.hi),duration:Math.max(0,...sources.map(s=>at(s.fields,'offensive'+type+'DurationMin',s.rank))),localPercent:localPercent(pctSources,type)});}
    const basePct=at(entry.fields,'weaponDamagePct',entry.rank),requestedWeaponPct=Math.max(0,sources.reduce((n,s)=>n+at(s.fields,'weaponDamagePct',s.rank),0)),weaponPct=entry.summoned?0:requestedWeaponPct,unmodeledSummonWeaponPct=entry.summoned?requestedWeaponPct:0;
    if(weaponPct)for(const p of activeWeapon.packets)packets.push({type:p.type,origin:'weapon',weaponRole:activeWeapon.role,baseLo:p.lo*basePct/100,baseHi:p.hi*basePct/100,modifiedLo:p.lo*weaponPct/100,modifiedHi:p.hi*weaponPct/100,duration:p.duration,localPercent:localPercent(pctSources,p.type)});
-   const converted=convertPackets(packets,localRules,globalRules,activeWeapon.pierce).map(p=>{const percent=B.bonusPercent(result,p.type)+p.localPercent,scale=charge/100*Math.max(0,1+percent/100),duration=p.type.startsWith('Slow')?p.duration*Math.max(0,1+((result.totals['offensive'+p.type+'DurationModifier']||0)+pctSources.reduce((n,s)=>n+at(s.fields,'offensive'+p.sourceType+'DurationModifier',s.rank),0))/100):0;return{...p,convertedLo:p.modifiedLo*p.portion,convertedHi:p.modifiedHi*p.portion,finalLo:p.modifiedLo*p.portion*scale,finalHi:p.modifiedHi*p.portion*scale,globalPercent:B.bonusPercent(result,p.type),duration};});
+   const converted=convertPackets(packets,localRules,globalRules,activeWeapon.pierce).map(p=>{const percent=B.bonusPercent(result,p.type)+p.localPercent+localPercent(entry.summonSources,p.type),more=Math.max(0,1+((result.totals.offensiveDamageMultModifier||0)+[...pctSources,...entry.summonSources].reduce((n,s)=>n+at(s.fields,'offensiveDamageMultModifier',s.rank),0))/100),scale=charge/100*Math.max(0,1+percent/100)*more,duration=p.type.startsWith('Slow')?p.duration*Math.max(0,1+((result.totals['offensive'+p.type+'DurationModifier']||0)+pctSources.reduce((n,s)=>n+at(s.fields,'offensive'+p.sourceType+'DurationModifier',s.rank),0))/100):0;return{...p,convertedLo:p.modifiedLo*p.portion,convertedHi:p.modifiedHi*p.portion,finalLo:p.modifiedLo*p.portion*scale,finalHi:p.modifiedHi*p.portion*scale,globalPercent:B.bonusPercent(result,p.type),duration};});
    const percentLife=Math.max(0,sources.reduce((n,s)=>n+at(s.fields,'offensivePercentCurrentLifeMin',s.rank)+at(s.fields,'offensiveLifePercentMin',s.rank),0)),retaliationPct=Math.max(0,sources.reduce((n,s)=>n+at(s.fields,'retaliationDamagePct',s.rank)+at(s.fields,'retaliationAddedToAttack',s.rank),0));
    if(!converted.length&&!percentLife&&!retaliationPct&&!unmodeledSummonWeaponPct)continue;
    const direct=converted.filter(p=>!p.type.startsWith('Slow')),dot=converted.filter(p=>p.type.startsWith('Slow'));

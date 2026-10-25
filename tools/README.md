@@ -29,3 +29,8 @@ Unconfigured source directories default to ignored `game-source/` and `data-sour
 - `package-v171.ps1`, `verify-package-v171.ps1`: original curated release packaging and verification. Repository-only Markdown documentation is not part of that historical whitelist. GitHub tag archives include the complete published repository.
 
 Data extraction does not grant redistribution rights. See the root license and third-party notices.
+# v1.81
+
+`verify-v181.cjs` tests scoped conversion, pet damage, player-scaling summons and compatibility with the current acquisition catalogs. `verify-browser-v181.cjs` checks desktop/mobile English/Chinese UI; set `PLAYWRIGHT_MODULE` to a Playwright installation and optionally `GRIMWEAVER_TEST_SAVE` for read-only save checks.
+
+`build-data-v181.cjs` expands summon effect references using `GRIMWEAVER_DATABASE_CACHE`, without changing item acquisition rules. `release-docs-v181.cjs` rebuilds the bilingual release guide. `package-v181.ps1` and `verify-package-v181.ps1` accept `-OutputDirectory` and produce/check the current formal archives.
