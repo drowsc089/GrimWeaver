@@ -14,6 +14,7 @@
 - Player-scaling summons, including Blade Spirit, appear in **Offense > Learned skill damage** and use player conversion and destination bonuses, separately from pet-only properties.
 - Added player/pet conversion summaries and a full source inventory, separating global, skill-specific, inactive and current-pet-specific properties. Sources include equipped items, affixes, unlocked sets, learned passives, devotions and enabled buffs in the active weapon set.
 - Fixed inactive summon modifier slots being treated as rank one. Conversion over 100% is normalized and converted damage never converts twice.
+- Fixed Chinese conversion-source labels, including **Elemental → 元素**, across summaries and damage breakdowns.
 
 The [v1.81 notes](docs/RELEASE_1_81.html) describe the remaining static-model limits. Build formats, old links and read-only character import remain compatible.
 
@@ -71,6 +72,7 @@ Author: **drchan089** · Contact: **drowsc@gmail.com**
 - 刀灵等角色加成类召唤物进入“攻击 > 已学技能伤害”，读取角色转换与转换后加成，不混入战宠专用词条。
 - 增加角色/战宠转换汇总及完整来源表，区分全局、技能专用、未启用及当前战宠自身转换，覆盖当前武器组的装备、词缀、生效套装、已学被动、星座与已启用增益。
 - 修正召唤物未激活修正槽位被当成1级生效的问题。超过100%的竞争转换归一，已转换部分不会再次转换。
+- 补齐转换来源与伤害明细的中文类型名称，包括 **Elemental → 元素**。
 
 仍为静态预估，限制见 [v1.81 说明](docs/RELEASE_1_81.html)。构筑格式、旧链接和只读存档导入保持兼容。
 
