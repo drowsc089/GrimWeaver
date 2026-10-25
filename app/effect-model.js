@@ -1,7 +1,7 @@
 (function(g){
 'use strict';
 const C=g.DawnCore,B=g.DawnCombat,{canon,at,first}=C,TYPES=['Physical','Pierce','Fire','Cold','Lightning','Poison','Life','Aether','Chaos','Bleeding'];
-const links=['buffSkillName','petSkillName','subSkillName','modifierSkillName','petBonusName','autoCastSkill','itemSkillName','projectileName','projectileExplosion','projectileFragmentName','initialSkillName','attackSkillName','dyingSkillName'];
+const links=['buffSkillName','petSkillName','subSkillName','modifierSkillName','petBonusName','autoCastSkill','itemSkillName','skillProjectileName','projectileName','projectileExplosion','projectileFragmentsName','projectileFragmentName','initialSkillName','attackSkillName','dyingSkillName'];
 const effectLink=key=>links.includes(key)||/^specialAttack\d*SkillName$/.test(key);
 const enemyEffect=(r,hint=false)=>hint||first(r,'debufSkill',false)===true||/Debuf/.test(first(r,'Class',''));
 function resistanceDefinitions(fields,enemyTarget=false){const out=[];
@@ -12,7 +12,7 @@ function resistanceDefinitions(fields,enemyTarget=false){const out=[];
 }
 function walk(id,records,rank=1,charLevel=100){const out=new Map();
  function visit(id,rank,scaling='character',depth=0,relation='root',conditional=false){id=canon(id);const meta=records[id],r=meta?.fields||meta;if(!r||depth>20||(out.get(id)?.rank||0)>=rank)return;const cls=first(r,'Class','');if(/Pet|Monster/.test(cls))scaling=/PlayerScaling/.test(cls)?'character':'pet';if(relation==='petBonusName')scaling='pet';out.set(id,{id,fields:r,rank,scaling,name:meta?.name,description:meta?.description,enemyTarget:enemyEffect(r,!!meta?.enemyModifier),relation,conditional});
- for(const key of Object.keys(r).filter(effectLink))for(const p of r[key]||[])visit(p,key==='petBonusName'?at(r,'petBonusLevel',rank)||rank:key==='autoCastSkill'?at(r,'autoCastSkillLevel',rank)||rank:rank,scaling,depth+1,key,conditional||key==='autoCastSkill');
+ for(const key of Object.keys(r).filter(effectLink)){const a=r[key]||[],p=a[Math.min(rank-1,a.length-1)];if(p)visit(p,key==='petBonusName'?at(r,'petBonusLevel',rank)||rank:key==='autoCastSkill'?at(r,'autoCastSkillLevel',rank)||rank:rank,scaling,depth+1,key,conditional||key==='autoCastSkill');}
  for(const key of ['spawnObjects','modSpawnObjects']){const a=r[key];if(a?.length)visit(a[Math.min(a.length-1,rank-1)],rank,scaling,depth+1,key,conditional);}
  if(/Pet|Monster/.test(cls))for(const key of Object.keys(r)){const m=/^skillName(\d+)$/.exec(key);if(!m)continue;const raw=first(r,'skillLevel'+m[1],1),level=typeof raw==='number'?raw:B.formula(raw,{charLevel,monsterLevel:charLevel,skillLevel:rank});visit(first(r,key,''),Math.max(1,Math.floor(level||1)),scaling,depth+1,key,conditional);}}
  visit(id,rank);return [...out.values()];}

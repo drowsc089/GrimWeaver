@@ -13,6 +13,7 @@ Normal launcher builds use the bundled `app/data` and assets. No game extraction
 | `GRIMWEAVER_LOCALIZATION_ROOT` | GAL localization parent containing `Text_EN_03` and `Text_ZH_03` / GAL 汉化父目录 |
 | `GRIMWEAVER_VANILLA_ZH` | Extracted vanilla Chinese text directory / 原版简中目录 |
 | `GRIMWEAVER_TEST_SAVE` | Optional private `.gdc` file for read-only tests / 可选只读测试存档 |
+| `GRIMWEAVER_BASELINE_ROOT` | Optional extracted previous source/app folder for acquisition-diff reports / 可选旧版目录，用于获取性差异统计 |
 
 Unconfigured source directories default to ignored `game-source/` and `data-source/` placeholders. Set the environment variables to your own legally obtained inputs. Never commit game installations, raw database caches, private saves or generated verification reports.
 
@@ -21,6 +22,9 @@ Unconfigured source directories default to ignored `game-source/` and `data-sour
 - `export-database-cache.cjs`: exports installed ARZ layers to a local cache; includes the base game, expansions and GAL, and checks record counts.
 - `build-data-v16.cjs`, `build-data-v17.cjs`, `build-research.cjs`, `upgrade-research-v16.cjs`: historical incremental data transformations. Review the version assumptions before running; they can change bundled packs.
 - `update-data-v171.cjs`: refreshes celestial rank research from bundled data for v1.71.
+- `build-data-v18.cjs --apply`: verifies installed ARZ fingerprints, refreshes acquisition flags, weapon labels, legality pools, effects and item research indexes. Requires the cache, localization, installed game and GAL swap-script inputs above. Running without `--apply` only writes the local audit.
+- `verify-v18.cjs`: current model/catalog tests, including rank-indexed references, conversion ordering and set thresholds. `verify-browser-v18.cjs` uses Playwright and an installed Edge browser; set `PLAYWRIGHT_MODULE`, `GRIMWEAVER_BROWSER` or `GRIMWEAVER_TEST_URL` when needed. Browser tests use a fresh profile; the optional `.gdc` test is read-only.
+- `package-v18.ps1`: builds curated v1.8 archives in an explicitly selected output directory without including reports, saves, preferences or compiler output. `verify-package-v18.ps1` checks archive entries and hashes.
 - `verify-compatibility.cjs`, `verify-v171.cjs`: portable compatibility and rank-policy checks. The optional save test is skipped without `GRIMWEAVER_TEST_SAVE`.
 - `package-v171.ps1`, `verify-package-v171.ps1`: original curated release packaging and verification. Repository-only Markdown documentation is not part of that historical whitelist. GitHub tag archives include the complete published repository.
 

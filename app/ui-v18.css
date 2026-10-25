@@ -1,0 +1,49 @@
+.catalog-filters18{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:10px 22px;border-bottom:1px solid var(--line)}
+.catalog-filters18 label{display:flex;align-items:center;gap:8px;min-width:0;font-size:13px}
+.catalog-filters18 select{max-width:300px;min-width:170px}
+.catalog-filters18 input[type=checkbox]{width:18px;height:18px;flex:none;accent-color:var(--accent)}
+.catalog-item.higher-level18 small{color:var(--gold)}
+.item-source18{font-size:12px;line-height:1.6;margin-top:12px;color:var(--muted)}
+#skillDamagePanel18{padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:14px;min-width:0}
+.skill-damage-heading18{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.skill-damage-heading18 h3{font-size:15px;margin:8px 0 12px}
+.skill-damage-heading18>span{font-size:12px;color:var(--muted)}
+.skill-damage-controls18{display:flex;align-items:center;gap:6px;min-width:0;margin-bottom:12px}
+.skill-damage-controls18 select{min-width:0;flex:1;font-size:12px;width:100%;height:36px}
+.skill-damage-controls18 .icon-button{flex:0 0 36px;width:36px;height:36px;padding:8px}
+.skill-damage-entry18{min-width:0}
+.skill-damage-entry18>header{display:flex;align-items:center;gap:9px;min-width:0;margin:14px 0}
+.skill-damage-entry18>header>img{width:36px;height:36px;object-fit:contain;flex:none}
+.skill-damage-entry18 h4{font-size:14px;line-height:1.5;margin:0;overflow-wrap:anywhere}
+.skill-damage-entry18>header span,.damage-fact18{font-size:12px;color:var(--muted);line-height:1.7}
+.damage-effect18{border-top:1px solid var(--line);padding:8px 0}
+.damage-effect18 h5{margin:4px 0 8px;font-size:12px;font-weight:600;line-height:1.6}
+.damage-total18{display:flex;justify-content:space-between;gap:10px;align-items:baseline;font-size:12px;line-height:1.8;flex-wrap:wrap}
+.damage-total18 strong{font-size:15px;color:var(--gold);font-variant-numeric:tabular-nums;white-space:nowrap}
+.damage-table-scroll18{overflow-x:auto;max-width:100%;margin:10px 0}
+.damage-table18{border-collapse:collapse;width:100%;font-size:11px;table-layout:fixed}
+.damage-table18 th,.damage-table18 td{padding:7px 4px;border-bottom:1px solid var(--line);text-align:right;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.damage-table18 th:first-child{width:42%;text-align:left;font-weight:400}
+.damage-table18 thead th{font-weight:500;color:var(--muted);vertical-align:bottom}
+.damage-table18 small{display:block;font-size:10px;color:var(--muted);line-height:1.5}
+.final-damage18{color:var(--gold);font-weight:600}
+.damage-charges18{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px;margin:8px 0}
+.damage-charges18 input{width:62px;min-width:62px;height:32px;padding:4px 7px}
+.damage-limit18{font-size:12px;line-height:1.8;color:var(--muted);overflow-wrap:anywhere}
+#skillDamageDialog18{width:min(1000px,96vw);max-width:96vw;height:min(88vh,1000px);max-height:92vh;padding:0;overflow:hidden}
+#skillDamageDialog18[open]{display:flex;flex-direction:column}
+.skill-dialog-toolbar18{padding:14px 22px;border-bottom:1px solid var(--line);flex:none}
+.skill-dialog-toolbar18 .skill-damage-controls18{margin:0;max-width:700px}
+.skill-dialog-toolbar18 select{font-size:14px}
+.skill-dialog-body18{overflow-y:auto;padding:2px 22px 24px;min-height:0;overscroll-behavior:contain}
+.skill-dialog-body18 .damage-table18{font-size:13px;min-width:620px}
+.skill-dialog-body18 .damage-table18 th:first-child{width:30%}
+.skill-dialog-body18 .damage-table18 small{font-size:11px}
+.skill-dialog-body18 .damage-effect18{padding:14px 0}
+.skill-dialog-body18 h4{font-size:17px}
+.conversion-trace18{font-size:12px;margin:12px 0}
+.conversion-trace18 summary,.damage-modifiers18 summary{cursor:pointer;padding:6px 0}
+.conversion-trace18>div{display:grid;grid-template-columns:minmax(0,1fr) 70px 120px;gap:10px;padding:5px 0;line-height:1.6}
+.conversion-trace18 small{color:var(--muted)}
+.damage-modifiers18{font-size:12px;line-height:1.8}
+@media(max-width:680px){.catalog-filters18{padding:10px 14px;gap:12px}.catalog-filters18 label:first-child{width:100%}.catalog-filters18 select{max-width:none;flex:1}.skill-dialog-toolbar18,.skill-dialog-body18{padding-left:14px;padding-right:14px}.conversion-trace18>div{grid-template-columns:minmax(0,1fr) 60px}.conversion-trace18 small{grid-column:1/-1}}

@@ -4,13 +4,22 @@
 
 **Offline build planner for Grimarillion v97d (GAL).**
 
-[Download](https://github.com/drowsc089/GrimWeaver/releases/latest) · [v1.71](https://github.com/drowsc089/GrimWeaver/releases/tag/v1.71) · [Changelog](docs/CHANGELOG.html) · [Notices](docs/NOTICE.html)
+[Download](https://github.com/drowsc089/GrimWeaver/releases/latest) · [v1.8](https://github.com/drowsc089/GrimWeaver/releases/tag/v1.8) · [Changelog](docs/CHANGELOG.html) · [Notices](docs/NOTICE.html)
 
 ## English
 
+### New in v1.8
+
+- Re-audited all equipment and affix catalogs against merged game/mod records, positive-weight source tables, crafting, vendors, quests and GAL NPC exchanges. Restored supported items outside the old `records/items` path restriction.
+- Equipment/loot references from creatures with explicit `dropItems=false` do not count as acquisition sources. A separate real crafting, vendor, quest or droppable-monster source can still make the item available. Developer inspection cannot equip records marked unavailable.
+- Weapon selection now has 13 database-derived families, including spears, two-handed spears and staves. Off-hand weapon searches exclude two-handed weapons.
+- Added an Awakened filter and a separate character-level filter. All 126 source-backed Awakened records remain available; two require level 101 in the actual data, so their visibility does not imply a level-100 character can equip them.
+- Learned attack skills now have an offense-panel damage preview and expanded breakdown: base, skill-modified, converted and character-scaled damage, with weapon portions, DoT, active modifiers and conversion paths.
+- Fixed intermittent mastery-data loss when importing builds after browsing many equipment categories.
+
 ### Download and Run
 
-Download `GrimWeaver_v1.71_GAL_Offline.zip` from [Releases](https://github.com/drowsc089/GrimWeaver/releases/latest), extract the complete folder and run `GrimWeaver.exe`. Requires Windows x64 and a modern browser. The launcher is self-contained; no .NET installation or Internet connection is required. The local address is `http://127.0.0.1:15688/`. Exit from the system tray to stop the service.
+Download `GrimWeaver_v1.8_GAL_Offline.zip` from [Releases](https://github.com/drowsc089/GrimWeaver/releases/latest), extract the complete folder and run `GrimWeaver.exe`. Requires Windows x64 and a modern browser. The launcher is self-contained; no .NET installation or Internet connection is required. The local address is `http://127.0.0.1:15688/`. Exit from the system tray to stop the service.
 
 SHA-256 sidecars accompany release archives. The application is not code-signed and Windows may display a first-run warning. Download from this repository's Releases and verify the checksum; do not disable system security protections.
 
@@ -23,7 +32,7 @@ SHA-256 sidecars accompany release archives. The application is not code-signed 
 - Local saves, file import/export, self-contained DB1 codes and full share links, Chinese/English UI and remembered language.
 - Read-only `.gdc` import, without changing character saves or game databases.
 
-### v1.71 Rank Behavior
+### Celestial Rank Imports
 
 Build-file, code and link imports set allocated celestial powers to maximum rank. Native `.gdc` imports retain actual character ranks. Local saves, session restoration, undo and redo preserve explicit ranks; missing legacy ranks default to maximum. All 63 powers use experience-table growth caps, consistently across tooltips, buffs, summons and build debuffs.
 
@@ -33,11 +42,13 @@ The DB1 codec and `schemaVersion=1` remain stable, with unknown extension fields
 
 Install the **.NET 8 SDK**, then run `./tools/build-launcher.ps1` in PowerShell from the repository root. Run the resulting `GrimWeaver.exe`. Bundled UI, data and assets are sufficient; rebuilding the launcher does not require extracting game databases.
 
-With **Node.js 22+**, run `node tools/verify-compatibility.cjs` and `node tools/verify-v171.cjs`. Set `GRIMWEAVER_TEST_SAVE` to opt into a read-only native-save test. Generated reports are ignored under `verification/`. See [tools/README.md](tools/README.md) for optional data-maintenance inputs.
+With **Node.js 22+**, run `node tools/verify-compatibility.cjs` and `node tools/verify-v18.cjs`. Set `GRIMWEAVER_TEST_SAVE` to opt into read-only browser/native-save checks. Generated reports are ignored under `verification/`. See [tools/README.md](tools/README.md) for optional data-maintenance inputs.
 
 ### Scope and Rights
 
 This is an unofficial community tool, not a complete game-engine simulation. DPS, attack rates, random rolls, some modifiers and pet statistics require further in-game calibration. Enemy random gear, temporary effects and mutators are not fully simulated.
+
+Skill previews are per effect, not an automatic total-DPS calculation. Projectile overlap, proc rates, target defenses, critical hits, target-dependent current-health damage and added retaliation are excluded from flat totals. Missing linked records are flagged rather than fabricated. Acquisition checks do not simulate every actor placement or runtime quest condition. [v1.8 details](docs/RELEASE_1_8.html)
 
 Independently authored GrimWeaver code and the original application mark are [MIT-licensed](LICENSE.txt). Game/mod data, art, localization and third-party code retain their respective ownership and are **not relicensed under MIT**. Rem's project-specific permission is recorded in [Rem-PERMISSION.txt](third_party/Rem-PERMISSION.txt). Read [NOTICE.html](docs/NOTICE.html) before redistribution.
 
@@ -45,9 +56,18 @@ Author: **drchan089** · Contact: **drowsc@gmail.com**
 
 ## 简体中文
 
+### v1.8 更新
+
+- 重新复核全部装备和词缀目录，按合并数据库、正权重来源表、制作、商店、任务与 GAL NPC 转换判断获取来源，补回旧 `records/items` 路径限制误排除的有效条目。
+- 明确设置 `dropItems=false` 的生物装备/掉落引用不作为获取来源；同物品另有有效制作、商店、任务或正常怪物掉落来源时保留。未纳入正常来源的记录在开发者查看中也不可选装。
+- 武器增加 13 类数据库分类，包含单手长矛、双手长矛、法杖；副手武器筛选不显示双手武器。
+- 增加“仅觉醒”和独立等级筛选。126 条有来源的觉醒记录保留；其中两件数据库需求等级为 101，可见不代表 100 级角色可装备。
+- 攻击面板增加已学技能伤害及展开明细，分列基础、技能修正、转换后、人物加成后数值，区分武器部分和持续伤害，并列出生效修正与转换路径。
+- 修复浏览多个装备分类后，导入构筑偶发专精数据丢失的问题。
+
 ### 下载与运行
 
-1. 在 Releases 下载 `GrimWeaver_v1.71_GAL_Offline.zip`，解压整个文件夹。
+1. 在 Releases 下载 `GrimWeaver_v1.8_GAL_Offline.zip`，解压整个文件夹。
 2. 运行 `GrimWeaver.exe`。需要 Windows x64 和现代浏览器，无需安装 .NET，也无需联网。
 3. 本机页面为 `http://127.0.0.1:15688/`。从系统托盘退出程序可结束本机服务。
 
@@ -62,7 +82,7 @@ Author: **drchan089** · Contact: **drowsc@gmail.com**
 - 本地构筑保存、导入导出、DB1 分享码与完整分享链接；中英双语及语言记忆。
 - 只读导入 `.gdc` 角色存档，不修改存档或游戏数据库。
 
-### v1.71 导入规则
+### 星座等级导入规则
 
 - 导入构筑文件、分享码或分享链接：已分配的星座触发技能默认满级。
 - 导入游戏 `.gdc`：使用角色当前实际星座触发技能等级。
@@ -84,7 +104,7 @@ DB1 编码和 `schemaVersion=1` 保持兼容，保留未知扩展字段。软件
 
 ```powershell
 node tools/verify-compatibility.cjs
-node tools/verify-v171.cjs
+node tools/verify-v18.cjs
 ```
 
 可选的只读存档测试通过环境变量 `GRIMWEAVER_TEST_SAVE` 指定自己的 `.gdc` 文件；未指定则跳过该项。测试输出在忽略的 `verification/` 目录。数据维护说明见 [tools/README.md](tools/README.md)。不需要重新提取游戏数据库即可构建启动器。
@@ -92,6 +112,8 @@ node tools/verify-v171.cjs
 ### 范围与版权
 
 这是社区静态构筑工具，不是官方产品，也不等同于完整游戏引擎。DPS、攻击频率、随机变量、部分技能修正与战宠数值仍需游戏内校准；敌人随机装备、临时效果和变异等并未全部模拟。
+
+技能按单次效果预估，不自动合并总 DPS；弹体重叠、触发率、目标防御、暴击、依赖目标当前生命的伤害与反击附加不计入固定伤害合计。缺失关联记录会明确提示，不补造效果。获取性检查未模拟所有地图实体放置和运行时任务条件。[v1.8 详细说明](docs/RELEASE_1_8.html)
 
 独立编写的 GrimWeaver 代码及原创应用标记采用 [MIT](LICENSE.txt)。游戏、模组、美术、汉化与第三方代码仍归原权利人所有，不因本仓库公开而获得 MIT 授权。Rem Skill Planner 的项目用途授权与归属见 [Rem-PERMISSION.txt](third_party/Rem-PERMISSION.txt) 和 [NOTICE.html](docs/NOTICE.html)。请勿将整个素材集合视为可任意再授权资源。
 
